@@ -17,7 +17,6 @@ export const AuthContextProvider = ({children} : {children: React.ReactNode}) =>
     const [userLoading, setUserLoading] = useState(true);
 
     useEffect(() => {
-        console.log(user, !isEmptyObject(user))
         setAuthenticated(!isEmptyObject(user));
     }, [user]);
 

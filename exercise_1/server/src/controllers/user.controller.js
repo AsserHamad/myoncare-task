@@ -17,7 +17,6 @@ exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
 
 exports.updateUser = catchAsyncErrors(async (req, res, next) => {
     const id = req.params.id;
-    console.log(id);
     const [usersAffected] = await User.update(req.body, {where: {id}});
     if(!usersAffected)
         return next({status: 404, message: 'This user does not exist'});

@@ -8,19 +8,17 @@ import './Register.scss';
 import { FormI, RegisterPropsI } from './Register.types';
 
 const Register = ({state, onLoginRedirect} : RegisterPropsI) => {
-  const [form, setForm] = useState<FormI>({email: 'asserhamad96@gmail.com', password: 'abcd1234'});
+  const [form, setForm] = useState<FormI>({email: '', password: ''});
   const [errors, setErrors] = useState({email: '', password: ''});
   const [registerError, setRegisterError] = useState('');
   const {setUser} = useAuthContext();
 
   const registerHandler = useCallback(async () => {
-    console.log('registering');
     register(form.email, form.password)
     .then(({data}) => {
       setErrors({email: '', password: ''});
       localStorage.setItem('accessToken', data.accessToken);
       setUser(data.user);
-      console.log(data);
     })
     .catch((err : AxiosError) => {
       if(err.response?.data.errors) {

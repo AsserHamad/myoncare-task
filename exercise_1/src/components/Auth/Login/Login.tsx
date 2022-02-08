@@ -8,7 +8,7 @@ import { FormI } from '../Register/Register.types';
 import './Login.scss';
 
 const Login = ({state, onRegisterRedirect} : {state : boolean, onRegisterRedirect : () => any}) => {
-  const [form, setForm] = useState<FormI>({email: 'asserhamad96@gmail.com', password: 'abcd1234'});
+  const [form, setForm] = useState<FormI>({email: '', password: ''});
   const [errors, setErrors] = useState({email: '', password: ''});
   const [loginError, setLoginError] = useState('');
 

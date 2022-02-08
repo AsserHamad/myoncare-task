@@ -11,9 +11,13 @@ import { useAuthContext } from './contexts/AuthContext';
 import Home from './pages/Home/Home';
 import UserDetails from './pages/UserDetails/UserDetails';
 import Navbar from './components/Navbar/Navbar';
+import Loading from './pages/Loading/Loading';
 
 const AppRoutes = () => {
-    const {authenticated} = useAuthContext();
+    const {authenticated, userLoading} = useAuthContext();
+
+  if(userLoading)
+    return <Loading />
   return (
     <Router>
         {authenticated ? (

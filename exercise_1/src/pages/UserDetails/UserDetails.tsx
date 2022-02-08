@@ -5,6 +5,7 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import { UserI } from '../../types/general.types';
 import { deleteUser, getUser, updateUser } from '../../utils/apiRequests';
 import { extractDateFromDateTime } from '../../utils/functions.util';
+import Loading from '../Loading/Loading';
 import './UserDetails.scss';
 
 const UserDetails = () => {
@@ -57,7 +58,7 @@ const UserDetails = () => {
     }
 
     if(!user)
-        return <div>Loading...</div>
+        return <Loading />
   return (
       <div className='user-details'>
           <div className='user-details-header'>
