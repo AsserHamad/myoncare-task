@@ -1,6 +1,9 @@
-FROM node:latest
+FROM node:12
 
 WORKDIR /app/
+RUN npm install serve -g
 COPY ./package.json ./
-RUN npm install
-CMD [ "npm", "start"]
+RUN yarn
+COPY . .
+RUN yarn build
+CMD [ "serve", "-s", "build" ]
