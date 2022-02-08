@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:latest
 
 WORKDIR /app/
 RUN npm install serve -g
