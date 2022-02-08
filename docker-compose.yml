@@ -1,0 +1,30 @@
+version: "3"
+services:
+  doc_container_1:
+    restart: always
+    container_name: doc_container_1
+    build:
+      dockerfile: Dockerfile
+      context: ./server
+    volumes:
+      - /app/node_modules
+      - ./server/:/app/
+    ports:
+      - 9000:9000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  
+  doc_container_2:
+    restart: always
+    container_name: doc_container_2
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    volumes:
+      - /app/build
+      - /app/node_modules
+      - ./client/:/app/
+    ports:
+      - 3000:3000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
