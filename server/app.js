@@ -11,9 +11,9 @@ config(app);
 appRouter(app);
 
 // Defining the path for all non-API related routes
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "..", "build", "index.html"));
-});
+// app.use((req, res, next) => {
+//   res.sendFile(path.join(__dirname, "..", "build", "index.html"));
+// });
 
 // The default error handler
 app.use(function(err, req, res, next) {
