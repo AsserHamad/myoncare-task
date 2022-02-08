@@ -14,7 +14,7 @@ const Login = ({state, onRegisterRedirect} : {state : boolean, onRegisterRedirec
 
   const {setUser} = useAuthContext();
 
-  const registerHandler = useCallback(async () => {
+  const loginHandler = useCallback(async () => {
     login(form.email, form.password)
     .then(({data}) => {
       setErrors({email: '', password: ''});
@@ -28,8 +28,6 @@ const Login = ({state, onRegisterRedirect} : {state : boolean, onRegisterRedirec
           setErrors(newErrors);
       } else {
         setErrors({email: '', password: ''});
-        console.log(err.response?.data);
-        
         setLoginError(err.response?.data.message);
       }
     });
@@ -49,9 +47,9 @@ const Login = ({state, onRegisterRedirect} : {state : boolean, onRegisterRedirec
       <p className='login-title'>Login to MyOncare</p>
       <p className='login-login-text'>Do't have an account? <span className='login-login-button' onClick={onRegisterRedirect}>Register</span></p>
       <p className='login-error'>{loginError}</p>
-      <CustomInput error={errors.email} title={'E-Mail'} onChange={onFormChangeHandler} placeholder={'johndoe@mail.com'} name="email" />
-      <CustomInput error={errors.password} title={'Password'} onChange={onFormChangeHandler} placeholder={'6+ Characters'} type={'password'} name="password" />
-      <CustomButton text={'Login'} onSubmit={registerHandler} />
+      <CustomInput onSubmit={loginHandler} error={errors.email} title={'E-Mail'} onChange={onFormChangeHandler} placeholder={'johndoe@mail.com'} name="email" />
+      <CustomInput onSubmit={loginHandler} error={errors.password} title={'Password'} onChange={onFormChangeHandler} placeholder={'6+ Characters'} type={'password'} name="password" />
+      <CustomButton text={'Login'} onSubmit={loginHandler} />
     </div>
   );
 };

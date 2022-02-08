@@ -40,3 +40,16 @@
         margin-top: 1vh;
     }
 }
+
+@media (min-width: $small-screen) and (max-width: 1000px) {
+    .custom-input {
+        &-title {
+            font-size: 0.6em;
+            margin-bottom: 3px;
+        }
+        > input {
+            font-size: 0.7em;
+            padding: 1em 1em;
+        }
+    }
+}

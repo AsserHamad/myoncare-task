@@ -3,6 +3,8 @@
 .auth-information {
     width: 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 
     &-container {
         display: flex;
@@ -27,5 +29,38 @@
         height: 80%;
         object-fit: contain;
         padding: 30px;
+    }
+}
+
+@media (max-width: 500px) {
+    .auth-information {
+        height: auto;
+        width: 100%;
+        align-items: center;
+        &-container {
+            @include flexCenter;
+        }
+        .doctor {
+            display: none
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .title {
+        display: none;
+    }
+
+    .auth-information {
+        align-items: center;
+        &-container {
+            .logo {
+                padding: 5px;
+                width: 60%;
+            }
+        }
+        .doctor {
+            padding: 10px;
+        }
     }
 }

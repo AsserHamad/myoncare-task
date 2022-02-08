@@ -1,5 +1,67 @@
 @import '../../scss/mixins';
+@import '../../scss/variables';
 
 .home-container {
-    height: 300vh;
+    width: 100%;
+    padding: 40px 10vw;
+
+    &-title {
+        font-weight: bold;
+        font-size: 1.3em;
+        margin-bottom: 5px;
+    }
+
+    &-subtitle {
+        font-size: 0.7em;
+        margin-bottom: 20px;
+        color: #aaa;
+
+    }
+
+    > table {
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        column-gap: 0;
+        border-collapse: collapse;
+        border-radius: 10px;
+
+        th, tr, td {
+            text-align: left;
+            padding: 2vh 2vw;
+            font-size: 0.9em;
+        }
+
+        tbody tr {
+            cursor: pointer;
+            transition-duration: 0.2s;
+            &:hover {
+                color: white;
+                background-color: lighten($primary, 20%);
+            }
+        }
+
+    }
+}
+
+@media (max-width: $big-screen) {
+    .home-container {
+        text-align: center;
+        &-title {
+            font-size: 1rem;
+            margin-left: 0.5rem;
+        }
+        &-subtitle {
+            font-size: 0.5rem;
+            margin-left: 0.5rem;
+        }
+        padding: 40px 2vw;
+        > table {
+            th, tr, td {
+                text-align: left;
+                padding: 2vh 1vw;
+                font-size: 0.7em;
+            }
+        }
+    }
 }

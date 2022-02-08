@@ -17,3 +17,7 @@ export const VerifyTokenAPI = `/auth/verify`;
 export const GetAllUsersAPI = `/users/`;
 
 export const GetUserAPI = (id : string|number) => `/users/${id}`;
+
+export const UpdateUserAPI = (id : string|number) => `/users/${id}`;
+
+export const DeleteUserAPI = (id : string|number) => `/users/${id}`;

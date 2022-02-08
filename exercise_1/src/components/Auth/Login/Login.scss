@@ -54,3 +54,17 @@
 
     }
 }
+
+
+@media (max-width: 1000px) {
+    .login {
+        &-join {
+            font-size: 0.5em;
+            margin-bottom: 5px;
+        }
+
+        &-title {
+            font-size: 1em;
+        }
+    }
+}

@@ -7,4 +7,6 @@ export interface CustomInputPropsI {
     error? : string
     type? : string
     name : string
+    initialValue? : string
+    onSubmit? : () => void
 }

@@ -8,8 +8,9 @@ import './Register.scss';
 import { FormI, RegisterPropsI } from './Register.types';
 
 const Register = ({state, onLoginRedirect} : RegisterPropsI) => {
-  const [form, setForm] = useState<FormI>({});
+  const [form, setForm] = useState<FormI>({email: 'asserhamad96@gmail.com', password: 'abcd1234'});
   const [errors, setErrors] = useState({email: '', password: ''});
+  const [registerError, setRegisterError] = useState('');
   const {setUser} = useAuthContext();
 
   const registerHandler = useCallback(async () => {
@@ -22,9 +23,14 @@ const Register = ({state, onLoginRedirect} : RegisterPropsI) => {
       console.log(data);
     })
     .catch((err : AxiosError) => {
-      const newErrors = err.response?.data.errors.reduce(
-        (prev : {[key : string] : string}, curr : {param : string, msg : string}) => ({...prev, [curr.param] : curr.msg}), {});
-      setErrors(newErrors);
+      if(err.response?.data.errors) {
+        const newErrors = err.response?.data.errors.reduce(
+          (prev : {[key : string] : string}, curr : {param : string, msg : string}) => ({...prev, [curr.param] : curr.msg}), {});
+          setErrors(newErrors);
+      } else {
+        setErrors({email: '', password: ''});
+        setRegisterError(err.response?.data.message);
+      }
     });
     
   }, [form, setUser]);
@@ -41,8 +47,9 @@ const Register = ({state, onLoginRedirect} : RegisterPropsI) => {
       <p className='register-join'>JOIN OUR PROGRAM</p>
       <p className='register-title'>Sign up to MyOncare</p>
       <p className='register-login-text'>Already a member? <span className='register-login-button' onClick={onLoginRedirect}>Log in</span></p>
-      <CustomInput error={errors.email} title={'E-Mail'} onChange={onFormChangeHandler} placeholder={'johndoe@mail.com'} name="email" />
-      <CustomInput error={errors.password} title={'Password'} onChange={onFormChangeHandler} placeholder={'6+ Characters'} type={'password'} name="password" />
+      <p className='register-error'>{registerError}</p>
+      <CustomInput onSubmit={registerHandler} error={errors.email} title={'E-Mail'} onChange={onFormChangeHandler} placeholder={'johndoe@mail.com'} name="email" />
+      <CustomInput onSubmit={registerHandler} error={errors.password} title={'Password'} onChange={onFormChangeHandler} placeholder={'6+ Characters'} type={'password'} name="password" />
       <CustomButton text={'Create an account'} onSubmit={registerHandler} />
     </div>
   );

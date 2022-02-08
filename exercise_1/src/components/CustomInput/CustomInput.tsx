@@ -7,10 +7,15 @@ const CustomInput = (props : CustomInputPropsI) => {
         props.onChange(e.currentTarget.value, props.name);
     }
 
+    const keyDownHandler = (e : React.KeyboardEvent) => {
+        if(e.key === 'Enter' && props.onSubmit)
+            props.onSubmit();
+    }
+
     return (
         <div className={'custom-input'}>
             <p className='custom-input-title'>{props.title}</p>
-            <input placeholder={props.placeholder} onChange={changeHandler} type={props.type || 'text'} />
+            <input onKeyDown={keyDownHandler} placeholder={props.placeholder} onChange={changeHandler} type={props.type || 'text'} defaultValue={props.initialValue} />
             <p className='custom-input-error'>{props.error}</p>
         </div>
     );

@@ -42,8 +42,28 @@
         }
     }
 
+    &-error {
+        font-size: 0.7em;
+        color: red;
+        height: 0.7em;
+        margin-top: 10px;
+    }
+
     &-inactive {
         left: -100%;
 
+    }
+}
+
+@media (max-width: 1000px) {
+    .register {
+        &-join {
+            font-size: 0.5em;
+            margin-bottom: 5px;
+        }
+
+        &-title {
+            font-size: 1em;
+        }
     }
 }

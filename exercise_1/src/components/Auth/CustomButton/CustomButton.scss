@@ -1,5 +1,5 @@
-@import '../../../scss/variables';
 @import '../../../scss/mixins';
+@import '../../../scss/variables';
 
 .custom-button {
     @include flexCenter;
@@ -16,5 +16,13 @@
 
     &:hover {
         background-color: lighten($primary, 20%);
+    }
+}
+
+@media (min-width: $small-screen) and (max-width: 1000px) {
+    .custom-button {
+        margin-top: 0.5em;
+        padding: 1em;
+        font-size: 0.7em;
     }
 }

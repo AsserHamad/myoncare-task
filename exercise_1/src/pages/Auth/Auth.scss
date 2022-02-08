@@ -1,4 +1,5 @@
 @import '../../scss/mixins';
+@import '../../scss/variables';
 
 .auth {
     display: flex;
@@ -26,4 +27,22 @@
 
         }
     }
+}
+
+@media (max-width: $small-screen) {
+    .auth-inner {
+        width: 90%;
+        padding: 10px;
+        flex-direction: column;
+        &-right {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .auth-inner {
+        width: 90%;
+    }
+
 }

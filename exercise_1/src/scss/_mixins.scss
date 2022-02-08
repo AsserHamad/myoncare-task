@@ -1,6 +1,6 @@
 @mixin backgroundGradient {
     background: rgb(244,61,199);
-    background: linear-gradient(180deg, rgba(244,61,199,1) 0%, rgba(244,110,171,1) 23%, rgba(244,137,150,1) 48%, rgba(244,155,143,1) 73%, rgba(244,176,133,1) 100%);
+    background: linear-gradient(90deg, rgba(244,61,199,1) 0%, rgba(244,110,171,1) 23%, rgba(244,137,150,1) 48%, rgba(244,155,143,1) 73%, rgba(244,176,133,1) 100%);
 }
 
 @mixin fadeTo($from, $to) {
