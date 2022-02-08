@@ -1,0 +1,18 @@
+@mixin backgroundGradient {
+    background: rgb(244,61,199);
+    background: linear-gradient(180deg, rgba(244,61,199,1) 0%, rgba(244,110,171,1) 23%, rgba(244,137,150,1) 48%, rgba(244,155,143,1) 73%, rgba(244,176,133,1) 100%);
+}
+
+@mixin fadeTo($from, $to) {
+    // -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    // mask-image: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0));
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, $from, $to);
+    mask-image: linear-gradient(to top, $from, $to);
+}
+
+@mixin flexCenter($direction : row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}

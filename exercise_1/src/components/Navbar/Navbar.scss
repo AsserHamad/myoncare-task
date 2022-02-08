@@ -1,0 +1,56 @@
+@import '../../scss/variables';
+
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 10vh;
+    height: 10vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo-container {
+        height: 50%;
+        padding: 1vh 2vw;
+        >img {
+            height: 100%;
+        }
+    }
+
+    >input {
+        width: 100%;
+        margin: 5px;
+        height: 70%;
+        border-radius: 20px;
+        border: 1px solid rgba(0,0,0,0.1);
+        background-color: rgb(233, 233, 233);
+    }
+
+    .right-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &-name {
+            width: 7vw;
+            font-size: 0.8em;
+        }
+
+        &-logout {
+            cursor: pointer;
+            margin: 0 2vw;
+            font-size: 0.7em;
+            transition-duration: 0.2s;
+            border: solid 1px $primary;
+            color: $primary;
+            border-radius: 20px;
+            padding: 1vh 2vw;
+            &:hover {
+                background-color: $primary;
+                color: white;
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+@import '../../scss/mixins';
+
+.auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F2EFF8;
+
+    &-inner {
+        background-color: white;
+        width: 70%;
+        height: 85%;
+        display: flex;
+        border-radius: 5px;
+        box-shadow: 10px 0 20px rgba(0,0,0,0.1);
+        overflow: hidden;
+
+        &-right {
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 60%;
+            height: 100%;
+
+        }
+    }
+}
