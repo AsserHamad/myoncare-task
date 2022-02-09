@@ -1,8 +1,8 @@
 version: "3"
 services:
-  doc_container_1:
+  doc_container_2:
     restart: always
-    container_name: doc_container_1
+    container_name: doc_container_2
     build:
       dockerfile: Dockerfile
       context: ./server
@@ -14,9 +14,9 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
   
-  doc_container_2:
+  doc_container_1:
     restart: always
-    container_name: doc_container_2
+    container_name: doc_container_1
     build:
       dockerfile: Dockerfile
       context: ./client

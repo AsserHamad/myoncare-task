@@ -15,4 +15,6 @@ cd myoncare-task
 docker-compose up --build -d
 ``` 
 
+Note: Please make sure ports 3000 and 9000 are available before running any docker commands.
+
 ###### This was implemented on WindowsOS
